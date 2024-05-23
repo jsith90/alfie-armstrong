@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-from env import *
+
 
 if os.path.isfile('env.py'):
     import env
@@ -102,12 +102,12 @@ if 'DEBUG' in os.environ:
 else:
     DATABASES = {
     'default': {
-        'ENGINE': ENGINE,
-        'HOST': HOST,
-        'NAME': NAME,
-        'USER': USER,
-        'PASSWORD': PASSWORD,
-        'PORT': PORT,
+        'ENGINE': os.environ.get('ENGINE'),
+        'HOST': os.environ.get('HOST'),
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'PORT': os.environ.get('PORT'),
     }
 }
 
