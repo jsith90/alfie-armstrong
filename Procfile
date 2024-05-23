@@ -1,0 +1,1 @@
+web: gunicorn alfieart.wsgi
